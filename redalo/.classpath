@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/activation.jar"/>
+	<classpathentry kind="lib" path="libs/additionnal.jar"/>
+	<classpathentry kind="lib" path="libs/commons-codec-1.15.jar"/>
+	<classpathentry kind="lib" path="libs/commons-fileupload-1.4.jar"/>
+	<classpathentry kind="lib" path="libs/commons-io-2.11.0.jar"/>
+	<classpathentry kind="lib" path="libs/docusign-admin-java-1.1.0.jar"/>
+	<classpathentry kind="lib" path="libs/docusign-click-java-1.1.0.jar"/>
+	<classpathentry kind="lib" path="libs/docusign-esign-java-3.17.1.jar"/>
+	<classpathentry kind="lib" path="libs/docusign-monitor-java-1.0.0.jar"/>
+	<classpathentry kind="lib" path="libs/docusign-rooms-java-1.1.0.jar"/>
+	<classpathentry kind="lib" path="libs/hk2-api-2.6.1.jar"/>
+	<classpathentry kind="lib" path="libs/hk2-locator-2.6.1.jar"/>
+	<classpathentry kind="lib" path="libs/hk2-utils-2.6.1.jar"/>
+	<classpathentry kind="lib" path="libs/istack-commons-runtime-3.0.12.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-annotations-2.12.6.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-core-2.12.6.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-databind-2.12.6.1.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-dataformat-csv-2.12.6.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-datatype-jdk8-2.12.6.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-datatype-joda-2.12.6.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-datatype-jsr310-2.12.6.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-jaxrs-base-2.12.6.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-jaxrs-json-provider-2.12.6.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-module-jaxb-annotations-2.12.6.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-module-parameter-names-2.12.6.jar"/>
+	<classpathentry kind="lib" path="libs/jakarta.activation-1.2.2.jar"/>
+	<classpathentry kind="lib" path="libs/jakarta.activation-api-1.2.2.jar"/>
+	<classpathentry kind="lib" path="libs/jakarta.annotation-api-1.3.5.jar"/>
+	<classpathentry kind="lib" path="libs/jakarta.inject-2.6.1.jar"/>
+	<classpathentry kind="lib" path="libs/jakarta.ws.rs-api-2.1.6.jar"/>
+	<classpathentry kind="lib" path="libs/jakarta.xml.bind-api-2.3.3.jar"/>
+	<classpathentry kind="lib" path="libs/javassist-3.25.0-GA.jar"/>
+	<classpathentry kind="lib" path="libs/javax.activation-api-1.2.0.jar"/>
+	<classpathentry kind="lib" path="libs/jaxb-api-2.3.1.jar"/>
+	<classpathentry kind="lib" path="libs/jaxb-runtime-2.3.6.jar"/>
+	<classpathentry kind="lib" path="libs/jersey-client-2.33.jar"/>
+	<classpathentry kind="lib" path="libs/jersey-common-2.33.jar"/>
+	<classpathentry kind="lib" path="libs/jersey-entity-filtering-2.33.jar"/>
+	<classpathentry kind="lib" path="libs/jersey-hk2-2.33.jar"/>
+	<classpathentry kind="lib" path="libs/jersey-media-json-jackson-2.33.jar"/>
+	<classpathentry kind="lib" path="libs/jersey-media-multipart-2.33.jar"/>
+	<classpathentry kind="lib" path="libs/joda-time-2.10.8.jar"/>
+	<classpathentry kind="lib" path="libs/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="libs/mail.jar"/>
+	<classpathentry kind="lib" path="libs/org.apache.oltu.oauth2.client-1.0.2.jar"/>
+	<classpathentry kind="lib" path="libs/org.apache.oltu.oauth2.common-1.0.2.jar"/>
+	<classpathentry kind="lib" path="libs/osgi-resource-locator-1.0.3.jar"/>
+	<classpathentry kind="lib" path="libs/servlet-api.jar"/>
+	<classpathentry kind="lib" path="libs/txw2-2.3.6.jar"/>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
