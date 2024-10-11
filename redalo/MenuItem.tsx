@@ -39,3 +39,28 @@ const MainMenu = () => {
 };
 
 export default MainMenu;
+
+/*
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  position: relative;
+}
+
+ul ul {
+  margin-left: 1rem; /* Indentation pour les sous-menus */
+  margin-top: 0.5rem;
+}
+
+li > ul {
+  display: none; /* Masquer les sous-menus par défaut */
+}
+
+li:hover > ul, li button:focus + ul, li a:focus + ul {
+  display: block; /* Afficher les sous-menus au survol ou au clic */
+}
+*/
