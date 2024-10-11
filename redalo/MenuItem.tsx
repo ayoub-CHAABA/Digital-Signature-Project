@@ -1,66 +1,59 @@
-import React from "react";
-import MenuItem from "./menu-item";
-import MenuTitle from "./menu-title";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"; // Composant Avatar de Shadcn
+import React, { useState } from "react";
+import Link from "next/link";
+import { cn } from "@/lib/utils"; // Utilitaire pour gérer les classNames
+import { ChevronDown } from "lucide-react"; // Icône Shadcn
 
-const MainMenu = () => {
+type MenuItemProps = {
+  children: React.ReactNode;
+  href?: string;
+  submenu?: MenuItemProps[];
+};
+
+const MenuItem = ({ children, href, submenu }: MenuItemProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="bg-muted p-4 flex flex-col">
-      <MenuTitle />
-      <ul className="py-4 space-y-2">
-        <MenuItem
-          href="/ui-forms"
-          submenu={[
-            { children: "Submenu 1", href: "/submenu1" },
-            {
-              children: "Submenu 2",
-              submenu: [{ children: "Subsubmenu 1", href: "/subsubmenu1" }],
-            },
-          ]}
+    <li className="relative">
+      {href ? (
+        <Link
+          href={href}
+          className={cn(
+            "flex justify-between items-center p-2 hover:bg-muted rounded-lg text-muted-foreground hover:text-foreground",
+            submenu && "pr-4"
+          )}
+          onClick={() => setIsOpen(!isOpen)}
         >
-          My Forms
-        </MenuItem>
-        <MenuItem href="/ui-forms/equity">Equity Forms</MenuItem>
-        <MenuItem href="/ui-forms/cty">CTY Forms</MenuItem>
-        <MenuItem href="/ui-forms/settings">Settings</MenuItem>
-      </ul>
-
-      <footer className="flex items-center space-x-4">
-        <Avatar>
-          <AvatarImage src="/path-to-avatar.jpg" alt="User Avatar" />
-          <AvatarFallback>AC</AvatarFallback>
-        </Avatar>
-        <Link href="/logout" className="underline">
-          Logout
+          {children}
+          {submenu && <ChevronDown className="h-4 w-4 ml-2" />}
         </Link>
-      </footer>
-    </nav>
+      ) : (
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className={cn(
+            "flex justify-between items-center w-full p-2 hover:bg-muted rounded-lg text-muted-foreground hover:text-foreground",
+            submenu && "pr-4"
+          )}
+        >
+          {children}
+          {submenu && <ChevronDown className="h-4 w-4 ml-2" />}
+        </button>
+      )}
+
+      {/* Sous-menus affichés en dessous */}
+      {submenu && isOpen && (
+        <ul
+          className={cn(
+            "pl-4 space-y-2 mt-2 transition-all ease-in-out duration-300",
+            isOpen ? "block" : "hidden"
+          )}
+        >
+          {submenu.map((item, index) => (
+            <MenuItem key={index} {...item} />
+          ))}
+        </ul>
+      )}
+    </li>
   );
 };
 
-export default MainMenu;
-
-/*
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  position: relative;
-}
-
-ul ul {
-  margin-left: 1rem; /* Indentation pour les sous-menus */
-  margin-top: 0.5rem;
-}
-
-li > ul {
-  display: none; /* Masquer les sous-menus par défaut */
-}
-
-li:hover > ul, li button:focus + ul, li a:focus + ul {
-  display: block; /* Afficher les sous-menus au survol ou au clic */
-}
-*/
+export default MenuItem;
