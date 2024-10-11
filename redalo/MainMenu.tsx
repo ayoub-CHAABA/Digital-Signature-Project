@@ -1,7 +1,7 @@
 import React from "react";
 import MenuItem from "./menu-item";
 import MenuTitle from "./menu-title";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"; // Example Shadcn Avatar component
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"; // Composant Avatar de Shadcn
 
 const MainMenu = () => {
   return (
@@ -12,7 +12,10 @@ const MainMenu = () => {
           href="/ui-forms"
           submenu={[
             { children: "Submenu 1", href: "/submenu1" },
-            { children: "Submenu 2", submenu: [{ children: "Subsubmenu 1", href: "/subsubmenu1" }] }
+            {
+              children: "Submenu 2",
+              submenu: [{ children: "Subsubmenu 1", href: "/subsubmenu1" }],
+            },
           ]}
         >
           My Forms
