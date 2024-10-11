@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { cn } from "@/lib/utils"; // Utility function from Shadcn for handling class names
-import { ChevronDownIcon } from "@heroicons/react/outline"; // Example icon from Heroicons (Shadcn compatible)
+import { cn } from "@/lib/utils"; // Utilitaire pour gérer les classNames
+import { ChevronDown } from "lucide-react"; // Icône Shadcn
 
 type MenuItemProps = {
   children: React.ReactNode;
@@ -13,14 +13,18 @@ const MenuItem = ({ children, href, submenu }: MenuItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <li className="relative group">
+    <li className="relative">
       {href ? (
-        <Link href={href} className={cn(
-          "flex justify-between items-center p-2 hover:bg-muted rounded-lg text-muted-foreground hover:text-foreground",
-          submenu && "pr-4"
-        )}>
+        <Link
+          href={href}
+          className={cn(
+            "flex justify-between items-center p-2 hover:bg-muted rounded-lg text-muted-foreground hover:text-foreground",
+            submenu && "pr-4"
+          )}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {children}
-          {submenu && <ChevronDownIcon className="h-4 w-4 ml-2" />}
+          {submenu && <ChevronDown className="h-4 w-4 ml-2" />}
         </Link>
       ) : (
         <button
@@ -31,17 +35,16 @@ const MenuItem = ({ children, href, submenu }: MenuItemProps) => {
           )}
         >
           {children}
-          {submenu && <ChevronDownIcon className="h-4 w-4 ml-2" />}
+          {submenu && <ChevronDown className="h-4 w-4 ml-2" />}
         </button>
       )}
 
-      {/* Submenu Rendering */}
-      {submenu && (
+      {/* Sous-menus affichés en dessous */}
+      {submenu && isOpen && (
         <ul
           className={cn(
-            "pl-4 space-y-2 mt-1 transition-all ease-in-out duration-300",
-            isOpen ? "block" : "hidden",
-            "absolute left-full top-0 w-48 bg-white shadow-lg rounded-lg z-10 group-hover:block"
+            "pl-4 space-y-2 mt-2 transition-all ease-in-out duration-300",
+            isOpen ? "block" : "hidden"
           )}
         >
           {submenu.map((item, index) => (
