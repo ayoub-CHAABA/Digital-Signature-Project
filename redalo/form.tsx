@@ -1,7 +1,8 @@
 import React from 'react';
 import { Form as ShadcnForm } from "@/components/ui/form";
 import { UseFormReturn } from "react-hook-form";
-import { FormField, FormItem, FormLabel, FormControl, FormMessage, Input, Select, SelectTrigger, SelectValue, SelectItem, SelectContent } from "@/components/ui/form";
+import { FormField, FormItem, FormLabel, FormControl, FormMessage, Input } from "@/components/ui/form";
+import SelectField from './SelectField'; // Import du composant SelectField
 
 // Interface pour décrire un champ de formulaire
 type FormFieldProps = {
@@ -39,18 +40,12 @@ const Form = ({ form, onSubmit, fields }: FormProps) => {
                     <Input placeholder={field.placeholder} {...formField} />
                   )}
                   {field.type === 'select' && (
-                    <Select onValueChange={formField.onChange} value={formField.value}>
-                      <SelectTrigger>
-                        <SelectValue placeholder={field.placeholder} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {field.options?.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    <SelectField
+                      value={formField.value}
+                      onChange={formField.onChange}
+                      placeholder={field.placeholder}
+                      options={field.options || []} // Les options sont passées via les props
+                    />
                   )}
                 </FormControl>
                 <FormMessage />
