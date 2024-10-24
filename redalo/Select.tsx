@@ -3,7 +3,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@
 
 // Interface pour les props du Select
 type SelectFieldProps = {
-  value: string;
+  value: string; // Le type de la valeur doit être "string" (si ce sont des strings dans les options)
   onChange: (value: string) => void;
   placeholder: string;
   options: { value: string; label: string }[];
@@ -11,7 +11,7 @@ type SelectFieldProps = {
 
 const SelectField = ({ value, onChange, placeholder, options }: SelectFieldProps) => {
   return (
-    <Select onValueChange={onChange} value={value}>
+    <Select defaultValue={value} onValueChange={onChange}>
       <SelectTrigger>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
