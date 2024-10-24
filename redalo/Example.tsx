@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import Form from './ui/form';
+import Card from './ui/card'; // Your custom Card component
+import Form from './ui/form'; // Your custom Form component
 import { Button } from "@/components/ui/button";
 
 export default function ExampleForm() {
@@ -16,7 +17,7 @@ export default function ExampleForm() {
     console.log("Form Submitted:", data);
   };
 
-  // Les champs du formulaire sont définis ici comme des objets
+  // Define the form fields with their respective configurations
   const formFields = [
     {
       name: 'email',
@@ -27,7 +28,7 @@ export default function ExampleForm() {
     {
       name: 'cA',
       label: 'CA',
-      placeholder: 'Select a calculator agent',
+      placeholder: 'Select a calcul',
       type: 'select',
       options: [
         { value: 'S', label: 'S' },
@@ -48,8 +49,11 @@ export default function ExampleForm() {
 
   return (
     <div className="container mx-auto p-4">
-      <Form form={form} onSubmit={handleSubmit} fields={formFields} />
-      <Button type="submit" className="mt-4">Submit</Button>
+      {/* Wrap the form in the Card component */}
+      <Card title="Transfer" description="Transfer after validation">
+        <Form form={form} onSubmit={handleSubmit} fields={formFields} />
+        <Button type="submit" className="mt-4">Submit</Button>
+      </Card>
     </div>
   );
 }
