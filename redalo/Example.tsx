@@ -49,7 +49,6 @@ export default function ExampleForm() {
 
   return (
     <div className="container mx-auto p-4">
-      {/* Wrap the form in the Card component */}
       <Card title="Transfer" description="Transfer after validation">
         <Form form={form} onSubmit={handleSubmit} fields={formFields} />
         <Button type="submit" className="mt-4">Submit</Button>
