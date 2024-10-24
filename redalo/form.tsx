@@ -39,12 +39,12 @@ const Form = ({ form, onSubmit, fields }: FormProps) => {
                   {field.type === 'text' && (
                     <Input placeholder={field.placeholder} {...formField} />
                   )}
-                  {field.type === 'select' && (
+                  {field.type === 'select' && field.options && (
                     <SelectField
-                      value={formField.value}
+                      value={formField.value || ""} // Assurez-vous que value est bien une chaîne vide si non défini
                       onChange={formField.onChange}
                       placeholder={field.placeholder}
-                      options={field.options || []} // Les options sont passées via les props
+                      options={field.options} // Les options sont fournies si le type est 'select'
                     />
                   )}
                 </FormControl>
